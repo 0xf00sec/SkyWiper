@@ -1,2 +1,5 @@
 # SkyWiper
-a simple wiper malware
+
+## Note
+
+-   The techniques you gone see in this malware are taken from a public malware samples
